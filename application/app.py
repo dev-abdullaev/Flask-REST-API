@@ -21,6 +21,9 @@ db = mongodb_client.db.get_collection('test')
 mongo = db
 
 
+@app.route('/', methods=['GET'])
+def welcome_page():
+    return 'Welcome to the application'
 
 @app.route('/api/v1/', methods=['GET'])
 def get_all_data():
