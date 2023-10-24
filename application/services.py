@@ -5,21 +5,54 @@ app = Flask(__name__)
 
 
 def success_response(*args, **kwargs):
+    """
+    Generates a success response with optional additional data.
+
+    Args:
+        *args: Additional positional arguments (not used).
+        **kwargs: Additional keyword arguments for custom response data.
+
+    Returns:
+        Response: JSON response containing success message and optional additional data.
+    """
+
     success_message = 'OK'
     response = {
         'message': success_message
     }
     if kwargs:
-        response.update({key: kwargs[key] for key in kwargs})
+        for key, value in kwargs.items(): response.update({key: value})
     return make_response(jsonify(response))
 
 def error_response(error=None):
+    """
+    Generates an error response with an optional error message.
+
+    Args:
+        error (str, optional): Custom error message. Defaults to None.
+
+    Returns:
+        Response: JSON response containing error message.
+    """
+
     error_message = 'Something went wrong'
-    response = {'success': False, 'message': error if error else error_message}
+    response = {
+        'success': False, 
+        'message': error if error else error_message
+    }
     return make_response(jsonify(response))
 
 
 class CustomValidationError(HTTPException):
+    """
+    Custom exception class for validation errors.
+
+    Attributes:
+        status_code (int): HTTP status code for the error.
+        default_message (str): Default error message.
+        debug (tuple): Debug information (not used).
+    """
+    
     status_code = 400
     default_message = 'Not found'
     debug: tuple = None
