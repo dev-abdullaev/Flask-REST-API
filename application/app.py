@@ -74,7 +74,7 @@ def update_data(key):
     updated_at = datetime.utcnow()
 
     result = mongo.update_one(
-        {"key": key}, 
+        {"key": key},
         {"$set": {"value": new_value, "updated_at": updated_at}}
     )
     if result.modified_count > 0:

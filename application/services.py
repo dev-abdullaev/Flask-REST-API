@@ -25,7 +25,8 @@ def success_response(**kwargs):
         'message': success_message
     }
     if kwargs:
-        for key, value in kwargs.items(): response.update({key: value})
+        for key, value in kwargs.items():
+            response.update({key: value})
     return make_response(jsonify(response))
 
 def error_response(error=None):
@@ -74,6 +75,16 @@ class CustomValidationError(HTTPException):
 
 @app.errorhandler(CustomValidationError)
 def handle_custom_validation_error(error):
+    """
+    Custom error handler for handling instances of CustomValidationError.
+
+    Args:
+        error (CustomValidationError): The CustomValidationError instance raised in the application.
+
+    Returns:
+        Response: A JSON response containing the error description and status code.
+    """
     response = jsonify(error.description)
     response.status_code = error.code
     return response
+
