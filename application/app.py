@@ -73,12 +73,15 @@ def update_data(key):
     new_value = data.get('value')
     updated_at = datetime.utcnow()
 
-    result = mongo.update_one({"key": key}, {"$set": {"value": new_value, "updated_at": updated_at}})
+    result = mongo.update_one(
+        {"key": key}, 
+        {"$set": {"value": new_value, "updated_at": updated_at}}
+    )
     if result.modified_count > 0:
         result = mongo.find_one({"key": key})
         result['_id'] = str(result['_id'])
         return success_response(results=result), 200
-    return error_response(msg='Object not found'), 404
+    return error_response(error='Object not found'), 404
 
 
 @app.route('/api/v1/get/<string:key>/', methods=['GET'])
@@ -89,4 +92,4 @@ def get_data(key):
     if obj:
         obj['_id'] = str(obj['_id'])
         return success_response(results=obj), 200
-    return error_response(msg='Object not found'), 404
+    return error_response(error='Object not found'), 404
