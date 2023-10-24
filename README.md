@@ -1,8 +1,10 @@
-# Flask-REST-API with MongoDB
+# Flask-REST-API with MongoDB and Github Actions
 
 1) Clone the repo - https://github.com/dev-abdullaev/Flask-REST-API.git
 
 2) Run - make build - and you are good to go
+
+3) I set up Github Actions Pipeline to check source code with Pylint
 
 http://127.0.0.1:8080/ - Welcome page
 
