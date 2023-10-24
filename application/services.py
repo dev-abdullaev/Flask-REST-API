@@ -1,10 +1,14 @@
+"""
+This module contains utility functions and custom error handling for the application.
+"""
+
 from flask import jsonify, make_response, Flask
 from werkzeug.exceptions import HTTPException
 
 app = Flask(__name__)
 
 
-def success_response(*args, **kwargs):
+def success_response(**kwargs):
     """
     Generates a success response with optional additional data.
 
@@ -52,7 +56,7 @@ class CustomValidationError(HTTPException):
         default_message (str): Default error message.
         debug (tuple): Debug information (not used).
     """
-    
+
     status_code = 400
     default_message = 'Not found'
     debug: tuple = None
