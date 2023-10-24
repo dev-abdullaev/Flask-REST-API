@@ -87,4 +87,3 @@ def handle_custom_validation_error(error):
     response = jsonify(error.description)
     response.status_code = error.code
     return response
-

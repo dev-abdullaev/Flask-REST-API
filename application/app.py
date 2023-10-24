@@ -7,7 +7,7 @@ from datetime import datetime
 from flask import Flask, request
 from flask_pymongo import PyMongo
 from flask_cors import CORS
-from .services import error_response, success_response, CustomValidationError
+from application.services import error_response, success_response, CustomValidationError
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
