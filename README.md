@@ -1,4 +1,4 @@
-# Flask-REST-API with MongoDB and Github Actions
+# Flask-REST-API with MongoDB, Github Actions and AWS CodePipeline
 
 1) Clone the repo - https://github.com/dev-abdullaev/Flask-REST-API.git
 
