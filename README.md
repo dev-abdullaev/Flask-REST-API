@@ -21,4 +21,3 @@ Put  any key whic exists in the db - Donkey for example.
 
 http://127.0.0.1:8080/api/v1/update/{key} - Update object's value and updated_at will also be updated accordingly 
 Put  any key whic exists in the db - Donkey for example.
-
