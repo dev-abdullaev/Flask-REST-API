@@ -10,8 +10,8 @@ from flask_cors import CORS
 from application.services import error_response, success_response, CustomValidationError
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config["SECRET_KEY"] = db24c608640f5034b30b8e1e1eb5618ed0ffdbf5
+app.config["MONGO_URI"] = mongodb+srv://first_db:zohid1122@atlascluster.bpbrnv3.mongodb.net/mydb?retryWrites=true&w=majority
 
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
