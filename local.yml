@@ -9,14 +9,14 @@ services:
     depends_on:
       - mongo_db
     environment:
-      MONGO_URI: ${MONGO_URI}
+      MONGO_URI: mongodb+srv://first_db:zohid1122@atlascluster.bpbrnv3.mongodb.net/mydb?retryWrites=true&w=majority
   mongo_db:
     image: mongo:latest
     hostname: test_mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: first_db
+      MONGO_INITDB_ROOT_PASSWORD: zohid1122
+      MONGO_INITDB_DATABASE: mydb
     volumes:
       - mongodb-data:/data/db
     ports:
