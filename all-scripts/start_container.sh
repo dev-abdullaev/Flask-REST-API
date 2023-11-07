@@ -5,4 +5,4 @@ set -e
 docker pull 2303073/simple-python-flask-app
 
 # Run the Docker image as a container
-docker-compose -f local.yml up -d
+docker run -d -p 8080:8080 2303073/simple-python-flask-app

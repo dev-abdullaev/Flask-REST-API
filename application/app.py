@@ -2,7 +2,6 @@
 Main application file
 """
 
-import os
 from datetime import datetime
 from flask import Flask, request
 from flask_pymongo import PyMongo
@@ -10,8 +9,14 @@ from flask_cors import CORS
 from application.services import error_response, success_response, CustomValidationError
 
 app = Flask(__name__)
+<<<<<<< HEAD
 app.config["SECRET_KEY"] = 'db24c608640f5034b30b8e1e1eb5618ed0ffdbf5'
 app.config["MONGO_URI"] = 'mongodb+srv://first_db:zohid1122@atlascluster.bpbrnv3.mongodb.net/mydb?retryWrites=true&w=majority'
+=======
+DB_URI = "mongodb+srv://first_db:zohid1122@atlascluster.bpbrnv3.mongodb.net/mydb?retryWrites=true&w=majority"
+app.config["SECRET_KEY"] = "db24c608640f5034b30b8e1e1eb5618ed0ffdbf5"
+app.config["MONGO_URI"] = DB_URI
+>>>>>>> 4bcfa38045630cc95a960b2d268e2a808ee2e89b
 
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
